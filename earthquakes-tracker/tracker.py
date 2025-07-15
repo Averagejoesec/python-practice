@@ -2,6 +2,7 @@ import requests as rq
 import pandas as pd
 from operator import itemgetter
 import json
+import folium
 
 url = rq.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson")
 
@@ -24,12 +25,25 @@ for earthquake in earthquakes:
             magnitude = properties['mag']
         location = properties['place']
         earthquake_url = properties['url']
+        coordinates = earthquake['geometry']['coordinates'][:-1]
+        # print(coordinates)
 
-        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url})
+        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Coordinates': coordinates})
 
 sorted_earthquake_list = sorted(earthquake_list, key=itemgetter('Magnitude'), reverse=True)
+top_10 = sorted_earthquake_list[:10]
 
-df = pd.DataFrame(sorted_earthquake_list[:10])
+df = pd.DataFrame(top_10)
 df.index += 1
 
 print(f"Top 10 strongest earthquakes this week:\n{df}")
+
+# Part 2
+mapit = None
+
+latlon = [tuple(i['Coordinates']) for i in top_10]
+print(latlon)
+for coord in latlon:
+    mapit = folium.Map(location=[coord[0], coord[1]], zoom_start=6)
+
+mapit.save('map.html')
