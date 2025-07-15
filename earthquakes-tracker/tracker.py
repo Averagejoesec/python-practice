@@ -29,5 +29,7 @@ for earthquake in earthquakes:
 
 sorted_earthquake_list = sorted(earthquake_list, key=itemgetter('Magnitude'), reverse=True)
 
-for i in sorted_earthquake_list[:10]:
-    print(i)
+df = pd.DataFrame(sorted_earthquake_list[:10])
+df.index += 1
+
+print(f"Top 10 strongest earthquakes this week:\n{df}")
