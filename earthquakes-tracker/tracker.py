@@ -25,10 +25,15 @@ for earthquake in earthquakes:
             magnitude = properties['mag']
         location = properties['place']
         earthquake_url = properties['url']
-        coordinates = earthquake['geometry']['coordinates'][:-1]
-        # print(coordinates)
+        detail_url = properties['detail']
 
-        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Coordinates': coordinates})
+        # move this to make request to only the top ten results for efficiency
+        details_req = rq.get(detail_url)
+        details = details_req.json()
+        latitude = details['properties']['products']['origin'][0]['properties']['latitude']
+        longitude = details['properties']['products']['origin'][0]['properties']['longitude']
+
+        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Coordinates': (latitude, longitude)})
 
 sorted_earthquake_list = sorted(earthquake_list, key=itemgetter('Magnitude'), reverse=True)
 top_10 = sorted_earthquake_list[:10]

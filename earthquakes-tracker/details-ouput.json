@@ -1,0 +1,217 @@
+{
+  "type": "Feature",
+  "properties": {
+    "mag": 2.35,
+    "place": "19 km SW of Rancho Tehama Reserve, CA",
+    "time": 1752659656350,
+    "updated": 1752661336674,
+    "tz": null,
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75210727",
+    "felt": null,
+    "cdi": null,
+    "mmi": null,
+    "alert": null,
+    "status": "automatic",
+    "tsunami": 0,
+    "sig": 85,
+    "net": "nc",
+    "code": "75210727",
+    "ids": ",nc75210727,",
+    "sources": ",nc,",
+    "types": ",nearby-cities,origin,phase-data,scitech-link,",
+    "nst": 6,
+    "dmin": 0.1362,
+    "rms": 0.02,
+    "gap": 167,
+    "magType": "md",
+    "type": "earthquake",
+    "title": "M 2.4 - 19 km SW of Rancho Tehama Reserve, CA",
+    "products": {
+      "nearby-cities": [
+        {
+          "indexid": 5574217,
+          "indexTime": 1752659754740,
+          "id": "urn:usgs-product:nc:nearby-cities:nc75210727:1752659753020",
+          "type": "nearby-cities",
+          "code": "nc75210727",
+          "source": "nc",
+          "updateTime": 1752659753020,
+          "status": "UPDATE",
+          "properties": {
+            "eventsource": "nc",
+            "eventsourcecode": "75210727",
+            "pdl-client-version": "Version 2.7.10 2021-06-21"
+          },
+          "preferredWeight": 7,
+          "contents": {
+            "nearby-cities.json": {
+              "contentType": "application/json",
+              "lastModified": 1752659752000,
+              "length": 666,
+              "url": "https://earthquake.usgs.gov/realtime/product/nearby-cities/nc75210727/nc/1752659753020/nearby-cities.json"
+            }
+          }
+        }
+      ],
+      "origin": [
+        {
+          "indexid": 5574215,
+          "indexTime": 1752659753258,
+          "id": "urn:usgs-product:nc:origin:nc75210727:1752659750820",
+          "type": "origin",
+          "code": "nc75210727",
+          "source": "nc",
+          "updateTime": 1752659750820,
+          "status": "UPDATE",
+          "properties": {
+            "azimuthal-gap": "167",
+            "depth": "18.3400001525879",
+            "depth-type": "from location",
+            "error-ellipse-azimuth": "233",
+            "error-ellipse-intermediate": "1752.0000456",
+            "error-ellipse-major": "2952.000048",
+            "error-ellipse-minor": "767.9999832",
+            "error-ellipse-plunge": "60",
+            "error-ellipse-rotation": "336",
+            "evaluation-status": "preliminary",
+            "event-type": "earthquake",
+            "eventParametersPublicID": "quakeml:nc.anss.org/Event/NC/75210727#175265975082",
+            "eventsource": "nc",
+            "eventsourcecode": "75210727",
+            "eventtime": "2025-07-16T09:54:16.350Z",
+            "horizontal-error": "0.66",
+            "latitude": "39.865665435791",
+            "longitude": "-122.50666809082",
+            "magnitude": "2.35",
+            "magnitude-error": "0.070",
+            "magnitude-num-stations-used": "9",
+            "magnitude-source": "NC",
+            "magnitude-type": "md",
+            "minimum-distance": "0.1362",
+            "num-phases-used": "5",
+            "num-stations-used": "6",
+            "origin-source": "NC",
+            "pdl-client-version": "Version 2.7.10 2021-06-21",
+            "quakeml-magnitude-publicid": "quakeml:nc.anss.org/Netmag/NC/6360372",
+            "quakeml-origin-publicid": "quakeml:nc.anss.org/Origin/NC/72211197",
+            "quakeml-publicid": "quakeml:nc.anss.org/Event/NC/75210727",
+            "review-status": "automatic",
+            "standard-error": "0.02",
+            "title": "19 km SW of Rancho Tehama Reserve, CA",
+            "version": "0",
+            "vertical-error": "1.07000005"
+          },
+          "preferredWeight": 157,
+          "contents": {
+            "contents.xml": {
+              "contentType": "application/xml",
+              "lastModified": 1752659751000,
+              "length": 195,
+              "url": "https://earthquake.usgs.gov/realtime/product/origin/nc75210727/nc/1752659750820/contents.xml"
+            },
+            "quakeml.xml": {
+              "contentType": "application/xml",
+              "lastModified": 1752659750000,
+              "length": 3118,
+              "url": "https://earthquake.usgs.gov/realtime/product/origin/nc75210727/nc/1752659750820/quakeml.xml"
+            }
+          }
+        }
+      ],
+      "phase-data": [
+        {
+          "indexid": 5574216,
+          "indexTime": 1752659753775,
+          "id": "urn:usgs-product:nc:phase-data:nc75210727:1752659750820",
+          "type": "phase-data",
+          "code": "nc75210727",
+          "source": "nc",
+          "updateTime": 1752659750820,
+          "status": "UPDATE",
+          "properties": {
+            "azimuthal-gap": "167",
+            "depth": "18.3400001525879",
+            "depth-type": "from location",
+            "error-ellipse-azimuth": "233",
+            "error-ellipse-intermediate": "1752.0000456",
+            "error-ellipse-major": "2952.000048",
+            "error-ellipse-minor": "767.9999832",
+            "error-ellipse-plunge": "60",
+            "error-ellipse-rotation": "336",
+            "evaluation-status": "preliminary",
+            "event-type": "earthquake",
+            "eventParametersPublicID": "quakeml:nc.anss.org/Event/NC/75210727#175265975082",
+            "eventsource": "nc",
+            "eventsourcecode": "75210727",
+            "eventtime": "2025-07-16T09:54:16.350Z",
+            "horizontal-error": "0.66",
+            "latitude": "39.865665435791",
+            "longitude": "-122.50666809082",
+            "magnitude": "2.35",
+            "magnitude-error": "0.070",
+            "magnitude-num-stations-used": "9",
+            "magnitude-source": "NC",
+            "magnitude-type": "md",
+            "minimum-distance": "0.1362",
+            "num-phases-used": "5",
+            "num-stations-used": "6",
+            "origin-source": "NC",
+            "pdl-client-version": "Version 2.7.10 2021-06-21",
+            "quakeml-magnitude-publicid": "quakeml:nc.anss.org/Netmag/NC/6360372",
+            "quakeml-origin-publicid": "quakeml:nc.anss.org/Origin/NC/72211197",
+            "quakeml-publicid": "quakeml:nc.anss.org/Event/NC/75210727",
+            "review-status": "automatic",
+            "standard-error": "0.02",
+            "title": "19 km SW of Rancho Tehama Reserve, CA",
+            "version": "0",
+            "vertical-error": "1.07000005"
+          },
+          "preferredWeight": 157,
+          "contents": {
+            "contents.xml": {
+              "contentType": "application/xml",
+              "lastModified": 1752659751000,
+              "length": 195,
+              "url": "https://earthquake.usgs.gov/realtime/product/phase-data/nc75210727/nc/1752659750820/contents.xml"
+            },
+            "quakeml.xml": {
+              "contentType": "application/xml",
+              "lastModified": 1752659750000,
+              "length": 32787,
+              "url": "https://earthquake.usgs.gov/realtime/product/phase-data/nc75210727/nc/1752659750820/quakeml.xml"
+            }
+          }
+        }
+      ],
+      "scitech-link": [
+        {
+          "indexid": 5574256,
+          "indexTime": 1752661337945,
+          "id": "urn:usgs-product:nc:scitech-link:nc75210727-waveform_nc:1752661336674",
+          "type": "scitech-link",
+          "code": "nc75210727-waveform_nc",
+          "source": "nc",
+          "updateTime": 1752661336674,
+          "status": "UPDATE",
+          "properties": {
+            "addon-code": "Waveform_nc",
+            "addon-type": "LinkURL",
+            "eventsource": "nc",
+            "eventsourcecode": "75210727",
+            "pdl-client-version": "Version 2.7.10 2021-06-21",
+            "text": "Waveforms",
+            "url": "http://escweb.wr.usgs.gov/waveforms/wavesall/nc75210727/",
+            "version": "01"
+          },
+          "preferredWeight": 7,
+          "contents": []
+        }
+      ]
+    }
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-122.50666809082, 39.865665435791, 18.3400001525879]
+  },
+  "id": "nc75210727"
+}
