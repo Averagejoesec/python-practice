@@ -27,26 +27,32 @@ for earthquake in earthquakes:
         earthquake_url = properties['url']
         detail_url = properties['detail']
 
-        # move this to make request to only the top ten results for efficiency
-        details_req = rq.get(detail_url)
-        details = details_req.json()
-        latitude = details['properties']['products']['origin'][0]['properties']['latitude']
-        longitude = details['properties']['products']['origin'][0]['properties']['longitude']
 
-        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Coordinates': (latitude, longitude)})
+        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Details URL': detail_url})
 
 sorted_earthquake_list = sorted(earthquake_list, key=itemgetter('Magnitude'), reverse=True)
 top_10 = sorted_earthquake_list[:10]
 
+
+coordinates = []
+for i in top_10:
+    details_url = i['Details URL']
+    details_req = rq.get(details_url)
+    details = details_req.json()
+    latitude = details['properties']['products']['origin'][0]['properties']['latitude']
+    longitude = details['properties']['products']['origin'][0]['properties']['longitude']
+
+    coordinates.append(latitude, longitude)
+
 df = pd.DataFrame(top_10)
 df.index += 1
 
-print(f"Top 10 strongest earthquakes this week:\n{df}")
+# print(f"Top 10 strongest earthquakes this week:\n{df}")
 
 # Part 2
 mapit = None
 
-latlon = [tuple(i['Coordinates']) for i in top_10]
+latlon = [tuple(coordinates) for i in coordinates]
 print(latlon)
 for coord in latlon:
     mapit = folium.Map(location=[coord[0], coord[1]], zoom_start=6)
