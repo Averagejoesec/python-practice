@@ -8,10 +8,6 @@ url = rq.get("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week
 
 json_response = json.dumps((url.json()), indent=2)
 
-with open('earthquakes-tracker/output.txt', 'w') as file:
-    file.write(json_response)
-    file.close()
-
 url = url.json()
 
 earthquakes = url['features']
@@ -26,35 +22,26 @@ for earthquake in earthquakes:
         location = properties['place']
         earthquake_url = properties['url']
         detail_url = properties['detail']
+        coordinates = earthquake['geometry']['coordinates'][:-1]
 
-
-        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Details URL': detail_url})
+        earthquake_list.append({'Magnitude': str(magnitude), 'Location': location, 'URL': earthquake_url, 'Coordinates': coordinates})
 
 sorted_earthquake_list = sorted(earthquake_list, key=itemgetter('Magnitude'), reverse=True)
 top_10 = sorted_earthquake_list[:10]
-
-
-coordinates = []
-for i in top_10:
-    details_url = i['Details URL']
-    details_req = rq.get(details_url)
-    details = details_req.json()
-    latitude = details['properties']['products']['origin'][0]['properties']['latitude']
-    longitude = details['properties']['products']['origin'][0]['properties']['longitude']
-
-    coordinates.append(latitude, longitude)
-
 df = pd.DataFrame(top_10)
 df.index += 1
 
-# print(f"Top 10 strongest earthquakes this week:\n{df}")
+print(f"Top 10 strongest earthquakes this week:\n{df}")
+
 
 # Part 2
-mapit = None
+coordinates_list = []
+for i in sorted_earthquake_list:
+    lat_long = i['Coordinates']
+    coordinates_list.append(lat_long)
 
-latlon = [tuple(coordinates) for i in coordinates]
-print(latlon)
-for coord in latlon:
-    mapit = folium.Map(location=[coord[0], coord[1]], zoom_start=6)
+mapit = folium.Map(location=[45.523, -122.675], zoom_start=2,)
+for coord in coordinates_list:
+    folium.Marker(location=[coord[0], coord[1]],  fill_color='#43d9de', radius=8).add_to(mapit)
 
-mapit.save('map.html')
+mapit.save('earthquakes-tracker/map.html')
