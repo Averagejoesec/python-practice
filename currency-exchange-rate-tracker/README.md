@@ -1,0 +1,1 @@
+Create a Python command-line application that fetches real-time currency exchange rates and displays the conversion rates between a base currency (like USD) and a list of user-selected target currencies. The app will also allow users to convert amounts between currencies and save the results to a file for later reference.
