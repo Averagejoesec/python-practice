@@ -21,7 +21,7 @@ amount = float(input(f'Enter the amount to exchange in {currency}: '))
 def convert_currency(currency, target_currency, amount):
     target_currency_amount = response['rates'][target_currency]
     converted_rate = float(target_currency_amount) * amount
-    print(f'Conversion Results:\n{round(converted_rate, 2)}')
+    print(f'Conversion Results:\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}')
 
 
 convert_currency(currency, target_currency, amount)
