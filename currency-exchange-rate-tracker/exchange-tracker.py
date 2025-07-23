@@ -1,8 +1,6 @@
 import requests as r
-import datetime
+from datetime import date
 import json
-
-
 
 print('Welcome to the Exchange Rate Tracker!')
 currency = input('Enter the base currency (e.g., USD): ')
@@ -22,6 +20,12 @@ def convert_currency(currency, target_currency, amount):
     target_currency_amount = response['rates'][target_currency]
     converted_rate = float(target_currency_amount) * amount
     print(f'Conversion Results:\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}')
+    
+    conversion_results = f"Base currency: {currency}\nAmount: {amount} {currency}\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}\nTimestamp: "
+                        
+    with open('currency-exchange-rate-tracker/conversion_results.txt') as file:
+        file.write()
+        file.close()
 
 
 convert_currency(currency, target_currency, amount)
