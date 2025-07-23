@@ -1,0 +1,4 @@
+Base currency: USD
+Amount: 10.0 USD
+10.0 USD = 8.53 EUR
+Timestamp: 2025-07-23 21:57:40.051704

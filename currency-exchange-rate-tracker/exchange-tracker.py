@@ -1,5 +1,5 @@
 import requests as r
-from datetime import date
+from datetime import datetime
 import json
 
 print('Welcome to the Exchange Rate Tracker!')
@@ -21,11 +21,13 @@ def convert_currency(currency, target_currency, amount):
     converted_rate = float(target_currency_amount) * amount
     print(f'Conversion Results:\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}')
     
-    conversion_results = f"Base currency: {currency}\nAmount: {amount} {currency}\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}\nTimestamp: "
-                        
-    with open('currency-exchange-rate-tracker/conversion_results.txt') as file:
-        file.write()
+    conversion_results = f"Base currency: {currency}\nAmount: {amount} {currency}\n{amount} {currency} = {round(converted_rate, 2)} {target_currency}\nTimestamp: {datetime.now()}"
+
+    filename = 'currency-exchange-rate-tracker/conversion_results.txt'                   
+    with open(filename, 'w') as file:
+        file.write(conversion_results)
         file.close()
+    print(f'Results saved to {filename}.')
 
 
 convert_currency(currency, target_currency, amount)
