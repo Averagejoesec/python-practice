@@ -1,0 +1,1 @@
+Your task for today is to build a simple Python program that repeatedly asks the user for input and stores each response in a text file.
