@@ -1,4 +1,10 @@
 Base currency: USD
-Amount: 10.0 USD
-10.0 USD = 8.53 EUR
-Timestamp: 2025-07-23 21:57:40.051704
+Amount: 15.0 USD
+15.0 USD = 12.76 EUR
+Timestamp: 2025-07-24 21:45:22.499904
+
+Base currency: USD
+Amount: 15.0 USD
+15.0 USD = 11.06 GBP
+Timestamp: 2025-07-24 21:45:22.500310
+
