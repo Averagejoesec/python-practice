@@ -1,0 +1,1 @@
+Users can search for a city in the text box and the current weather information for that city will be displayed
