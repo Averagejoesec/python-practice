@@ -1,0 +1,1 @@
+Scrape random temperature data from the target URL and save the output with a timestamp.
