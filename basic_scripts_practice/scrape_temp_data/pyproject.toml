@@ -5,5 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "plotly-express>=0.4.1",
     "selectorlib>=0.16.0",
+    "streamlit>=1.47.1",
 ]
