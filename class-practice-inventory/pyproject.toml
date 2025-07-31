@@ -1,0 +1,10 @@
+[project]
+name = "class-practice-inventory"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fpdf>=1.7.2",
+    "pandas>=2.3.1",
+]
