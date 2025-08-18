@@ -17,3 +17,5 @@ Bonus (optional):
 Support multiple students by repeating the input prompt in a loop.
 
 Save results to a text or CSV file.
+
+Follow-up - troubleshoot grade issue and do bonus
