@@ -33,17 +33,29 @@ def average(scores):
     verdict = "Fail"
     if grade == "A" or "B" or "C" or "D":
         verdict = "Pass"
+
     return average_score, grade, verdict
 
 
-def write_to_csv:
+def write_to_csv(data):
     with open("grades.csv", "w", newline="") as csvfile:
-        fieldnames = ["Score", "Grade", "Pass/Fail"]
+        field_names = ["Score", "Grade", "Pass/Fail"]
+        writer = csv.DictWriter(csvfile, fieldnames=field_names)
+        writer.writeheader()
+        for row in data:
+            writer.writerow(row)
 
 if __name__ == "__main__":
-    scores = input("Enter scores separated by commas: ")
-    average_score, grade, verdict = average(scores)
-    if average_score and grade and verdict:
-        print(f"Average: {average_score}")
-        print(f"Letter Grade: {grade}")
-        print(f"Result: {verdict}")
+    data = []
+    while True:
+        scores = input("Enter scores separated by commas: ")
+        average_score, grade, verdict = average(scores)
+        data.append(({"Score": average_score, "Grade": grade, "Pass/Fail": verdict}))
+        if average_score and grade and verdict:
+            print(f"Average: {average_score}")
+            print(f"Letter Grade: {grade}")
+            print(f"Result: {verdict}")
+        another_student = input("Would you like to add another student? (Y/N) ")
+        if another_student.lower() == "n":
+            write_to_csv(data)
+            exit()
