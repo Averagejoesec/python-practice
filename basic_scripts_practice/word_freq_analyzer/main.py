@@ -25,11 +25,11 @@ unique_words = len(frequency)
 
 # Display the most common words in a formatted report
 print(f"""Top 5 Most Common Words:
-      1. {list(frequency)[-1]}: {frequency[list(frequency)[-1]]} times
-      2. {list(frequency)[-2]}: {frequency[list(frequency)[-2]]} times
-      3. {list(frequency)[-3]}: {frequency[list(frequency)[-3]]} times
-      4. {list(frequency)[-4]}: {frequency[list(frequency)[-4]]} times
-      5. {list(frequency)[-5]}: {frequency[list(frequency)[-5]]} times
+      1. {list(frequency)[-1]}: {frequency[list(frequency)[-1]]} times ({round(((frequency[list(frequency)[-1]] / total_words) * 100), 2)}%)
+      2. {list(frequency)[-2]}: {frequency[list(frequency)[-2]]} times ({round(((frequency[list(frequency)[-2]] / total_words) * 100), 2)}%)
+      3. {list(frequency)[-3]}: {frequency[list(frequency)[-3]]} times ({round(((frequency[list(frequency)[-3]] / total_words) * 100), 2)}%)
+      4. {list(frequency)[-4]}: {frequency[list(frequency)[-4]]} times ({round(((frequency[list(frequency)[-4]] / total_words) * 100), 2)}%)
+      5. {list(frequency)[-5]}: {frequency[list(frequency)[-5]]} times ({round(((frequency[list(frequency)[-5]] / total_words) * 100), 2)}%)
 
       Longest word: {list(frequency)[-1]} ({frequency[list(frequency)[-1]]} letters)
       Shortest word: {list(frequency)[0]} ({frequency[list(frequency)[0]]} letter(s))
