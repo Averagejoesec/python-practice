@@ -1,0 +1,25 @@
+Customer_ID,Name,Purchase_Amount,Country
+2,Bob Smith,1250.5,USA
+4,Diana Prince,2100.75,USA
+6,Fiona Apple,1500.0,USA
+8,Hannah Montana,1350.25,USA
+10,Julia Roberts,1100.0,USA
+13,Michael Scott,1750.5,USA
+17,Quincy Jones,1850.0,USA
+19,Samuel Jackson,1920.75,USA
+20,Tina Fey,1450.0,USA
+22,Victor Hugo,1200.5,USA
+24,Xavier Knight,1680.75,USA
+26,Zachary Levi,1540.0,USA
+28,Brian Cox,1025.5,USA
+31,Emma Watson,1375.0,USA
+33,Grace Kelly,1150.5,USA
+35,Iris Apfel,1430.75,USA
+37,Kelly Clarkson,1650.25,USA
+39,Monica Bellucci,1220.0,USA
+41,Olivia Newton,1560.25,USA
+43,Queen Latifah,1740.0,USA
+45,Scarlett Johansson,1825.5,USA
+47,Ursula Burns,1470.0,USA
+48,Vera Wang,2100.75,USA
+49,Will Smith,1310.5,USA
