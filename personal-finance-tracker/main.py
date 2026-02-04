@@ -11,26 +11,34 @@ def add_expenses():
     description = str(input("Description: "))
 
     expenses.append({"Amount" : amount, "Category": category, "Description": description})
-    print(expenses)
+    print("Expense added successfully!")
+    main_menu()
 
 # Displays all expenses in a clean, formatted output
 def view_expenses():
-    # Shows spending breakdown by category
-    pass
+    print("All Expenses")
+    expenseNumber = 1
+    for expense in expenses:
+        amount = expense["Amount"]
+        category = expense["Category"]
+        description = expense["Description"]
+        print(f"#{expenseNumber} | ${amount} | {category} | {description}")
+        expenseNumber += 1
+    main_menu()
 
 # Calculates and shows total spending
 def view_summary():
-    pass
+    print("Expense Summary")
+    totalSpend = 0.00
+    for expense in expenses:
+        totalSpend += expense["Amount"]
+    print(f"Total Spending: ${totalSpend}")
+    main_menu()
 
 # Uses a simple menu system for user interaction
 def main_menu():
-    print("""Menu:
-1. Add Expense
-2. View All Expenses
-3. View Summary
-4. Exit
-""")
-    userOption = int(input("Choose option: "))
+
+    userOption = int(input("\nChoose option: "))
     
     match userOption:
         case 1:
@@ -39,7 +47,14 @@ def main_menu():
             view_expenses()
         case 3:
             view_summary()
+        case 4:
+            print("Goodbye!")
+            exit
 
-
-main_menu()
-
+if __name__ == "__main__":
+    print("""Menu:
+    1. Add Expense
+    2. View All Expenses
+    3. View Summary
+    4. Exit""")
+    main_menu()
