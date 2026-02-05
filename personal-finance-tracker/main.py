@@ -6,7 +6,9 @@ from unicodedata import category
 from numpy import sort
 
 
-expenses = []
+expenses = [{"Amount" : 85.99, "Category" : "Groceries", "Description" : "Cheese"},
+            {"Amount" : 90.56, "Category" : "Transportation", "Description" : "Gas"},
+            {"Amount" : 65.45, "Category" : "Food", "Description" : "Wendys"}]
 
 # Allows users to add expenses with amount, category, and description
 def add_expenses():
@@ -35,23 +37,19 @@ def view_expenses():
 def view_summary():
     print("Expense Summary")
     totalSpend = 0.00
-    sortByCategory = []
+    sortByCategory = {}
     for expense in expenses:
         totalSpend += expense["Amount"]
         expenseCategory = expense["Category"]
         expenseAmount = expense["Amount"]
-        for item in sortByCategory:
-            if item[0] not in sortByCategory:
-                sortByCategory.append({expenseCategory: expenseAmount})
-            else:
-                sortByCategory[expenseCategory] += expenseAmount
-    
-    print("By Category:")
-    for category, amount in sortByCategory:
-        print(f"{category}: ${amount}")
-        
+        sortByCategory.update({expenseCategory: expenseAmount})
 
-    print(f"Total Spending: ${totalSpend}")
+    print(f"Total Spending: ${round(totalSpend, 2)}\n")
+        
+    print("By Category:")
+    for category, amount in sortByCategory.items():
+        print(f"{category}: ${round(amount, 2)}")
+
     main_menu()
 
 
