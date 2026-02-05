@@ -1,6 +1,11 @@
 # Uses functions to organize different operations
 
 # Stores expenses in a Python list (in-memory for now)
+from unicodedata import category
+
+from numpy import sort
+
+
 expenses = []
 
 # Allows users to add expenses with amount, category, and description
@@ -30,10 +35,25 @@ def view_expenses():
 def view_summary():
     print("Expense Summary")
     totalSpend = 0.00
+    sortByCategory = []
     for expense in expenses:
         totalSpend += expense["Amount"]
+        expenseCategory = expense["Category"]
+        expenseAmount = expense["Amount"]
+        for item in sortByCategory:
+            if item[0] not in sortByCategory:
+                sortByCategory.append({expenseCategory: expenseAmount})
+            else:
+                sortByCategory[expenseCategory] += expenseAmount
+    
+    print("By Category:")
+    for category, amount in sortByCategory:
+        print(f"{category}: ${amount}")
+        
+
     print(f"Total Spending: ${totalSpend}")
     main_menu()
+
 
 # Uses a simple menu system for user interaction
 def main_menu():
