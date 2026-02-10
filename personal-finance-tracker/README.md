@@ -27,3 +27,21 @@ Implements methods for adding, viewing, and analyzing expenses
 Maintains the same functionality as Day 1 but with better structure
 
 Demonstrates how classes encapsulate data and behavior together
+
+## Phase 3
+
+Create an expense tracker with storage and budgets that:
+
+Saves all expenses to a CSV file automatically
+
+Loads existing expenses when the program starts
+
+Allows users to set budget limits for each category
+
+Warns users when they’re approaching budget limits (80% threshold)
+
+Alerts users when they exceed budgets
+
+Shows budget status in the summary view
+
+Maintains all previous functionality (classes, viewing, totals)

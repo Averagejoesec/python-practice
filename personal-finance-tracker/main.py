@@ -1,7 +1,22 @@
-# {"Amount" : 85.99, "Category" : "Groceries", "Description" : "Cheese"},
-#             {"Amount" : 90.56, "Category" : "Transportation", "Description" : "Gas"},
-#             {"Amount" : 65.45, "Category" : "Food", "Description" : "Wendys"}
-# Uses an Expense class to represent individual expenses
+
+# Create an expense tracker with storage and budgets that:
+
+# Saves all expenses to a CSV file automatically
+
+# Loads existing expenses when the program starts
+
+
+# Allows users to set budget limits for each category
+
+# Warns users when they’re approaching budget limits (80% threshold)
+
+# Alerts users when they exceed budgets
+
+
+# Shows budget status in the summary view
+
+import csv
+
 class Expense:
     def __init__(self, amount, category, description):
         self.amount = amount
@@ -16,6 +31,13 @@ class ExpenseTracker:
     def __init__(self):
         self.expenses = []
 
+    def write_to_csv(self):
+        with open('expense_tracker.csv', 'w', newline='') as csvfile:
+            fieldnames = ["Amount", "Category", "Description"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writerheader()
+            writer.writerows(self.expenses)
+
     def add_expenses(self):
         print("\nAdd New Expense")
         print("---------------")
@@ -26,6 +48,7 @@ class ExpenseTracker:
 
         self.expenses.append(expense)
         print("\nExpense added successfully!\n")
+
 
     def view_expenses(self):
         print("\nAll Expenses")
