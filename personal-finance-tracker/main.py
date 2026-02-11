@@ -16,6 +16,7 @@
 # Shows budget status in the summary view
 
 import csv
+import os
 
 class Expense:
     def __init__(self, amount, category, description):
@@ -31,12 +32,20 @@ class ExpenseTracker:
     def __init__(self):
         self.expenses = []
 
-    def write_to_csv(self):
-        with open('expense_tracker.csv', 'w', newline='') as csvfile:
-            fieldnames = ["Amount", "Category", "Description"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerheader()
-            writer.writerows(self.expenses)
+    def load_expenses(self):
+        if not os.path.exists('expenses.csv'):
+            return
+        print("Loading expenses from file...")
+        with open('expenses.csv', 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                expense = Expense(
+                    float(row['amount']),
+                    row['category'],
+                    row['description']
+                )
+                self.expenses.append(expense)
+        print(f"Load {len(self.expenses)} existing expenses. \n")
 
     def add_expenses(self):
         print("\nAdd New Expense")
@@ -47,6 +56,7 @@ class ExpenseTracker:
         expense = Expense(amount, category, description)
 
         self.expenses.append(expense)
+
         print("\nExpense added successfully!\n")
 
 
