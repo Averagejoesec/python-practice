@@ -1,22 +1,9 @@
-
-# Create an expense tracker with storage and budgets that:
-
-# Saves all expenses to a CSV file automatically
-
-# Loads existing expenses when the program starts
-
-
-# Allows users to set budget limits for each category
-
-# Warns users when they’re approaching budget limits (80% threshold)
-
-# Alerts users when they exceed budgets
-
-
-# Shows budget status in the summary view
-
 import csv
 import os
+
+print("Personal Finance Tracker with Budgets")
+print("=====================================\n")
+
 
 class Expense:
     def __init__(self, amount, category, description):
@@ -31,6 +18,8 @@ class Expense:
 class ExpenseTracker:
     def __init__(self):
         self.expenses = []
+        self.budgets = {}
+        self.load_expenses
 
     def load_expenses(self):
         if not os.path.exists('expenses.csv'):
@@ -47,6 +36,30 @@ class ExpenseTracker:
                 self.expenses.append(expense)
         print(f"Load {len(self.expenses)} existing expenses. \n")
 
+    def save_expenses(self):
+        with open('expenses.csv', 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['amount', 'category', 'description'])
+            for expense in self.expenses:
+                writer.writerow([expense.amount, expense.category, expense.description])
+
+    def set_budget(self):
+        print("\nSet Category Budget")
+        print("-------------------")
+        category = input("Category: ")
+        budget = float(input("Monthly Budget: $"))
+        print("\nBudget set successfully!\n")
+
+    def check_budget(self, category):
+        category_total = sum(e.amount for e in self.expenses if e.category == category)
+        if category in self.budgets:
+            budget = self.budgets[category]
+            percentage = (category_total / budget) * 100
+            if percentage >= 80 and percentage < 100:
+                print(f"\n Warning: You've spent ${category_total:.2f} of your ${budget:.2f} {category} budget ({percentage:.0f}%)")
+            elif percentage >= 100:
+                print(f"\n Alert: You've exceed your ${budget:.2f} {category} budget! Current spending: ${category_total:.2f}")
+
     def add_expenses(self):
         print("\nAdd New Expense")
         print("---------------")
@@ -54,11 +67,10 @@ class ExpenseTracker:
         category = str(input("Category: "))
         description = str(input("Description: "))
         expense = Expense(amount, category, description)
-
         self.expenses.append(expense)
-
+        self.save_expenses()
+        self.check_budget(category)
         print("\nExpense added successfully!\n")
-
 
     def view_expenses(self):
         print("\nAll Expenses")
@@ -88,6 +100,14 @@ class ExpenseTracker:
                 byCategory[expense.category] = expense.amount
         print("By Category:")
         for category, amount in byCategory.items():
+            if category in self.budgets:
+                budget = self.budgetes[category]
+                percentage = (amount / budget) * 100
+                status = f"${amount:.2f} / ${budget:.2f} ({percentage:.0f}% used)"
+                if percentage >= 80:
+                    status += " ⚠️"
+            else:
+                status = f"${amount:.2f} (No budget set)"
             print(f"{category}: ${amount:.2f}")
         print()
 
@@ -110,7 +130,11 @@ while True:
         case "3":
             tracker.view_summary()
         case "4":
-            print("\nGoodbye!")
+            tracker.set_budget()
+        case "5":
+            print("\nSaving expenses to file...")
+            tracker.save_expenses()
+            print("Goodbye!")
             break
         case _:
             print("\nInvalid option. Please try again.\n")
