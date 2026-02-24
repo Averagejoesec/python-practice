@@ -45,3 +45,25 @@ Alerts users when they exceed budgets
 Shows budget status in the summary view
 
 Maintains all previous functionality (classes, viewing, totals)
+
+## Phase 4
+
+Create a web-based finance tracker dashboard that:
+
+Uses Streamlit to create an interactive web interface
+
+Displays an input form to add new expenses
+
+Shows all expenses in a formatted table
+
+Reads from and writes to the CSV file from Day 3
+
+Generates a pie chart showing spending by category
+
+Creates a bar chart comparing category totals
+
+Shows budget warnings with visual indicators
+
+Calculates and displays summary statistics
+
+Uses our Expense and ExpenseTracker classes from previous days
