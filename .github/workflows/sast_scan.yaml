@@ -1,0 +1,14 @@
+name: SAST Scan
+
+on: [push, pull_request]
+
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run Bandit
+        uses: PyCQA/bandit-action@v1
+          
