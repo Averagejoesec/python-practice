@@ -1,6 +1,6 @@
 name: SAST Scan
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   sast:
